@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Anexos</title>
+
+    <link rel="stylesheet" href="anexos.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- DECORAÇÕES -->
+        <div class="flor flor-1">✿</div>
+        <div class="flor flor-2">✿</div>
+        <div class="flor flor-3">❀</div>
+
+        <div class="linha"></div>
+
+        <h1>ANEXOS</h1>
+
+        <p class="subtitulo">
+            Registros e momentos importantes da minha trajetória.
+        </p>
+
+        <section class="cards">
+
+            <div class="card">
+                <img src="img/anexo1.jpeg" alt="Anexo 1">
+                <h3>Visita à CASA APIS</h3>
+            </div>
+
+            <div class="card">
+                <img src="img/anexo2.png" alt="Anexo 2">
+                <h3>Correio elegante</h3>
+            </div>
+
+            <div class="card">
+                <img src="leimariadamoda.jpg" alt="Anexo 3">
+                <h3>Trote Lei Maria da Moda</h3>
+            </div>
+
+            <div class="card">
+                <img src="foto4.jpg" alt="Anexo 4">
+                <h3>Nome da Foto 4</h3>
+            </div>
+
+            <div class="card">
+                <img src="foto5.jpg" alt="Anexo 5">
+                <h3>Nome da Foto 5</h3>
+            </div>
+
+            <div class="card">
+                <img src="foto6.jpg" alt="Anexo 6">
+                <h3>Nome da Foto 6</h3>
+            </div>
+
+        </section>
+
+        <div class="decoracao-baixo">
+            ❀ &nbsp; ✿ &nbsp; ❀
+        </div>
+
+        <div class="linha linha-baixo"></div>
+
+    </main>
+<div class="modal" id="modal">
+    <span class="fechar">&times;</span>
+    <img class="modal-img" id="imagemGrande">
+    <p id="tituloImagem"></p>
+</div>
+
+<script>
+    const cards = document.querySelectorAll(".card");
+    const modal = document.getElementById("modal");
+    const imagemGrande = document.getElementById("imagemGrande");
+    const tituloImagem = document.getElementById("tituloImagem");
+    const fechar = document.querySelector(".fechar");
+
+    cards.forEach(card => {
+        card.addEventListener("click", () => {
+            const imagem = card.querySelector("img");
+            const titulo = card.querySelector("h3");
+
+            imagemGrande.src = imagem.src;
+            imagemGrande.alt = imagem.alt;
+            tituloImagem.textContent = titulo.textContent;
+
+            modal.style.display = "flex";
+        });
+    });
+
+    fechar.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+</script>
+</body>
+
+</html>

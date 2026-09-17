@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     background: linear-gradient(135deg,#c996ab,#d9b4c3,#e7cad4);
+    flex-direction: column;
+}
+
+/* CONTAINER PRINCIPAL */
+.container{
+    width: 100%;
+    max-width: 1100px;
+    background-color:#f5c7da;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+
+/* TÍTULO */
+h1{
+    text-align: center;
+    color: #8b0d4f;
+    font-size: 58px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* TABELA (ORGANIZADA) */
+table{
+    width: 100%;
+    max-width: 900px;
+    border-spacing: 12px;
+}
+
+/* CABEÇALHO */
+th{
+    background: #e98fb4;
+    padding: 18px;
+    font-size: 24px;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* CÉLULAS */
+td{
+    background: #dd8bad;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff3f3;
+    border-radius: 10px;
+}
+
+/* HOVER LEVE (SEM DESORGANIZAR) */
+td:hover{
+    background: #f3b6cf;
+}
+
+/* FLOR (SEM QUEBRAR O LAYOUT) */
+.flor{
+    width: 100px;
+    display: block;
+    margin: -45px auto 0;
+    opacity: 0.85;
+    transition: 0.3s ease;
+}
+
+.flor:hover{
+    transform: scale(1.08);
+    opacity: 1;
+}

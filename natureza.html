@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NATUREZA</title>
+
+    <link rel="stylesheet" href="stilo.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- TOPO -->
+        <header class="topo">
+
+            <h1>NATUREZA</h1>
+
+            <p class="subtitulo">
+                Professores: Neiliane Maria e Wallace Lima
+            </p>
+
+        </header>
+
+
+        <!-- EIXO 1 -->
+        <section class="eixo">
+
+            <div class="titulo-eixo">
+                <span class="linha"></span>
+                <h2>EIXO 1</h2>
+            </div>
+
+
+            <!-- BOTÃO ATIVIDADE ESCOLHIDA -->
+            <div class="atividades">
+
+                <button class="btn-atividade"
+                    onclick="abrirAtividade(
+                    './nat1.png',
+                    'Atividade Escolhida',
+                    'Descrição da atividade realizada no Eixo 1.'
+                    )">
+
+                    ATIVIDADE ESCOLHIDA
+
+                </button>
+
+            </div>
+
+
+            <!-- CARDS -->
+            <div class="cards">
+
+                <div class="card">
+                    <img src="./nat1.png" alt="Atividade 1">
+                    <span class="data">28/01/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat2.png" alt="Atividade 2">
+                    <span class="data">05/02/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat3.png" alt="Atividade 3">
+                    <span class="data">11/02/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat4.png" alt="Atividade 4">
+                    <span class="data">11/02/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat5.png" alt="Atividade 5">
+                    <span class="data">11/02/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat6.png" alt="Atividade 6">
+                    <span class="data">26/02/2026</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EIXO 2 -->
+        <section class="eixo">
+
+            <div class="titulo-eixo">
+                <span class="linha"></span>
+                <h2>EIXO 2</h2>
+            </div>
+
+
+            <!-- BOTÃO ATIVIDADE ESCOLHIDA -->
+            <div class="atividades">
+
+                <button class="btn-atividade"
+                    onclick="abrirAtividade(
+                    './funçõesoxigendas.png',
+                    'Atividade Escolhida',
+                    'Descrição da atividade realizada no Eixo 2.'
+                    )">
+
+                    ATIVIDADE ESCOLHIDA
+
+                </button>
+
+            </div>
+
+
+            <!-- CARDS -->
+            <div class="cards">
+
+                <div class="card">
+                    <img src="./funçõesoxigendas.png" alt="Atividade 7">
+                    <span class="data">15/04/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./funções nitrogenadas.png" alt="Atividade 8">
+                    <span class="data">06/04/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./image.png" alt="Atividade 9">
+                    <span class="data">07/04/2026</span>
+                </div>
+
+                <div class="card">
+                    <img src="./nat9.png" alt="Atividade 10">
+                    <span class="data">27/05/2026</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EIXO 3 -->
+        <section class="eixo">
+
+            <div class="titulo-eixo">
+                <span class="linha"></span>
+                <h2>EIXO 3</h2>
+            </div>
+
+
+            <!-- BOTÃO ATIVIDADE ESCOLHIDA -->
+            <div class="atividades">
+
+                <button class="btn-atividade"
+                    onclick="abrirAtividade(
+                    './nat9.png',
+                    'Atividade Escolhida',
+                    'Descrição da atividade realizada no Eixo 3.'
+                    )">
+
+                    ATIVIDADE ESCOLHIDA
+
+                </button>
+
+            </div>
+
+
+            <div class="cards">
+
+               <div class="card">
+                    <img src="./xisto.png" alt="Atividade 10">
+                    <span class="data">05/08/2026</span>
+                </div>
+
+                 <div class="card">
+                    <img src="./isomeria.png" alt="Atividade 10">
+                    <span class="data">09/09/2026</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EIXO 4 -->
+        <section class="eixo">
+
+            <div class="titulo-eixo">
+                <span class="linha"></span>
+                <h2>EIXO 4</h2>
+            </div>
+
+
+            <!-- BOTÃO ATIVIDADE ESCOLHIDA -->
+            <div class="atividades">
+
+                <button class="btn-atividade"
+                    onclick="abrirAtividade(
+                    './nat9.png',
+                    'Atividade Escolhida',
+                    'Descrição da atividade realizada no Eixo 4.'
+                    )">
+
+                    ATIVIDADE ESCOLHIDA
+
+                </button>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card vazio">
+                    <p>Em breve</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- MODAL DA ATIVIDADE -->
+    <div class="modal" id="modal">
+
+        <div class="conteudo-modal">
+
+            <span class="fechar" onclick="fecharAtividade()">
+                &times;
+            </span>
+
+            <img id="imagemGrande" src="" alt="Imagem da atividade">
+
+            <h2 id="tituloAtividade"></h2>
+
+            <p id="descricaoAtividade"></p>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function abrirAtividade(imagem, titulo, descricao) {
+
+            document.getElementById("imagemGrande").src = imagem;
+
+            document.getElementById("tituloAtividade").innerText = titulo;
+
+            document.getElementById("descricaoAtividade").innerText = descricao;
+
+            document.getElementById("modal").style.display = "flex";
+
+        }
+
+
+        function fecharAtividade() {
+
+            document.getElementById("modal").style.display = "none";
+
+        }
+
+
+        /* FECHAR CLICANDO FORA */
+
+        document.getElementById("modal").addEventListener("click", function (event) {
+
+            if (event.target === this) {
+
+                fecharAtividade();
+
+            }
+
+        });
+
+
+        /* FECHAR COM ESC */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                fecharAtividade();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

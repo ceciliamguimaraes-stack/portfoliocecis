@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Meu Portfólio</title>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <nav>
+        <ul class="menu">
+
+            <li><a href="sumario.html">SUMÁRIO</a></li>
+
+            <li><a href="sobremim.html">IDENTIFICAÇÃO PESSOAL</a></li>
+
+            <li><a href="objetivos.html">OBJETIVOS</a></li>
+
+            <li><a href="plano.html">PPE</a></li>
+
+            <li><a href="historia.html">HISTÓRIA DE VIDA</a></li>
+
+            <li><a href="projeto.html">PROJETO DE VIDA</a></li>
+
+            <li><a href="linguagens.html">LINGUAGENS</a></li>
+
+            <li><a href="humanas.html">HUMANAS</a></li>
+
+            <li><a href="natureza.html">NATUREZA</a></li>
+
+            <li><a href="matematica.html">MATEMÁTICA</a></li>
+
+            <li><a href="senai.html">SENAI</a></li>
+
+
+            <!-- VER MAIS -->
+            <li class="dropdown">
+
+                <button type="button" class="btn-ver-mais" onclick="abrirMenu()">
+                    VER MAIS <span>▼</span>
+                </button>
+
+
+                <ul class="dropdown-menu">
+
+                    <li>
+                        <a href="curriculo.html">
+                            CURRÍCULO
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="consideracoes.html">
+                            CONSIDERAÇÕES FINAIS
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="referencias.html">
+                            REFERÊNCIAS
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="anexos.html">
+                            ANEXOS
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+        </ul>
+    </nav>
+
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="center">
+
+            <a href="https://br.shein.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <section class="capa">
+
+            <h2>Meu</h2>
+
+            <h1>PORTFÓLIO</h1>
+
+            <h3>
+                Orientado por Regiane Leal - Cleiton Jericó
+            </h3>
+
+
+            <!-- LOGO SENAI / SESI -->
+            <img src="./images-removebg-preview (1).png" alt="SESI e SENAI">
+
+
+            <!-- IMAGENS DA ESQUERDA -->
+            <div class="img-left">
+
+                <img src="./img/cecilia.png"
+                    class="img img1"
+                    alt="Cecília">
+
+                <img src="./cecilia10.png"
+                    class="img img2"
+                    alt="Cecília">
+
+                <img src="./img/cecilia4.png"
+                    class="img img3"
+                    alt="Cecília">
+
+            </div>
+
+
+            <!-- IMAGENS DA DIREITA -->
+            <div class="img-right">
+
+                <img src="./img/cecilia.png"
+                    class="img img4"
+                    alt="Cecília">
+
+                <img src="./cecilia10.png"
+                    class="img img5"
+                    alt="Cecília">
+
+                <img src="./img/cecilia4.png"
+                    class="img img6"
+                    alt="Cecília">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="copyright">
+
+        © <span id="ano"></span> Cecília Maria - Todos os direitos reservados
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        function abrirMenu() {
+
+            const dropdown = document.querySelector(".dropdown");
+
+            dropdown.classList.toggle("ativo");
+
+        }
+
+
+        const ano = document.getElementById("ano");
+
+        if (ano) {
+
+            ano.innerHTML = new Date().getFullYear();
+
+        }
+
+    </script>
+
+</body>
+
+</html>

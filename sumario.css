@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: rgb(206, 159, 182);
+    font-family:'Poppins', sans-serif;
+}
+
+/* SLIDE */
+
+.slide{
+    width:1200px;
+    height:675px;
+    background:#f5c7da;
+    position:relative;
+    overflow:hidden;
+    padding:35px 90px;
+    border-radius: 20PX;
+}
+
+/* TOPO */
+
+.topo{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:40px;
+}
+
+.topo h1{
+    font-size:72px;
+    color:rgb(121, 4, 59);
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.linha{
+    width:320px;
+    height:3px;
+    background:rgb(121, 4, 59);
+    border-radius:10px;
+}
+
+/* CONTEÚDO */
+
+.conteudo{
+    margin-top:20px;
+    margin-left:35px;
+}
+
+.lista-principal{
+    list-style:disc;
+}
+
+.lista-principal > li{
+    font-size:17px;
+    font-weight:600;
+    color:#1f1f1f;
+    margin-bottom:8px;
+    line-height:1.5;
+}
+
+/* SUBLISTA */
+
+.sublista{
+    list-style:none;
+    margin-top:8px;
+    margin-left:0;
+}
+
+.sublista li{
+    font-size:15px;
+    font-weight:500;
+    margin-bottom:2px;
+}
+
+/* RODAPÉ */
+
+.rodape{
+    position:absolute;
+    bottom:35px;
+    left:0;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.linha-rodape{
+    width:85%;
+    height:3px;
+    background:rgb(121, 4, 59);
+    position:absolute;
+}
+
+.flor{
+  width: 180px;
+  position: absolute;
+  left: 50%;
+  bottom: 135px;
+  transform: translateX(-50%);
+}

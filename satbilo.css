@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: linear-gradient(135deg,#c996ab,#d9b4c3,#e7cad4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* CONTAINER PRINCIPAL */
+.container{
+    width: 100%;
+    max-width: 1100px;
+    background:#f5c7da;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.15);
+
+    position: relative;
+}
+
+/* TÍTULO */
+h1{
+    text-align: center;
+    color: #8b0d4f;
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+/* LISTA */
+ul{
+    padding-left: 25px;
+}
+
+li{
+    margin-bottom: 18px;
+    font-size: 20px;
+    color: #000000;
+    line-height: 1.5;
+}
+
+strong{
+    font-weight: 700;
+    color: #8b0d4f;
+}
+
+/* ===== CONTAINER DAS FOTOS ===== */
+.polaroid{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ===== IMAGENS PADRONIZADAS ===== */
+.img{
+    width: 220px;
+    border-radius: 14px;
+    border: 6px solid rgb(121, 4, 59);
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+    object-fit: cover;
+    position: absolute;
+    transition: transform .3s ease;
+}
+
+/* ===== LADO ESQUERDO ===== */
+.img1{
+    left: 40px;
+    top: 80px;
+    transform: rotate(-5deg);
+}
+
+.img2{
+    left: 60px;
+    top: 280px;
+    transform: rotate(4deg);
+}
+
+.img3{
+    left: 40px;
+    top: 480px;
+    transform: rotate(-4deg);
+}
+
+/* ===== LADO DIREITO ===== */
+.img4{
+    right: 40px;
+    top: 80px;
+    transform: rotate(5deg);
+}
+
+.img5{
+    right: 60px;
+    top: 280px;
+    transform: rotate(-4deg);
+}
+
+.img6{
+    right: 40px;
+    top: 480px;
+    transform: rotate(5deg);
+}
+
+/* ===== EFEITO HOVER ===== */
+.img:hover{
+    transform: scale(1.05);
+    z-index: 20;
+}
+
+/* HOVER PROFISSIONAL */
+.img1:hover,
+.img2:hover,
+.img3:hover,
+.img4:hover,
+.img5:hover,
+.img6:hover{
+    transform: scale(1.05) rotate(0deg);
+}
+
+/* IMAGEM EXTRA (IA OU CENTRAL) */
+.ia{
+    width: 240px;
+    position: absolute;
+    left: 50%;
+    top: 200px;
+    transform: translateX(-50%);
+    border-radius: 14px;
+    border: 6px solid #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}

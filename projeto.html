@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROJETO DE VIDA</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body{
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      background: linear-gradient(135deg,#c996ab,#d9b4c3,#e7cad4);
+    }
+
+    .container{
+      width: 100%;
+      max-width: 1100px;
+      background-color:#f5c7da;
+      padding: 40px 50px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,.15);
+      position: relative;
+    }
+
+    .container::before,
+    .container::after{
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 3px solid #d89ab4;
+    }
+
+    .container::before{
+      top: 20px;
+      left: 20px;
+      border-right: none;
+      border-bottom: none;
+      border-radius: 20px 0 0 0;
+    }
+
+    .container::after{
+      bottom: 20px;
+      right: 20px;
+      border-left: none;
+      border-top: none;
+      border-radius: 0 0 20px 0;
+    }
+
+    .linha{
+      width: 95%;
+      height: 4px;
+      background: #8b0d4f;
+      margin: auto;
+      border-radius: 10px;
+    }
+
+    h1{
+      text-align: center;
+      color: #8b0d4f;
+      font-size: 58px;
+      margin: 25px 0 35px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .imagem{
+      display: flex;
+      justify-content: center;
+    }
+
+    .imagem img{
+      width: 100%;
+      max-width: 820px;
+           border: 2px solid #e7c7cf;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0,0,0,.18);
+      transition: .3s;
+    }
+
+    .imagem img:hover{
+      transform: scale(1.02);
+    }
+
+    .linha-baixo{
+      margin-top: 35px;
+    }
+    .flor{
+    width: 150px;
+
+    display: block;
+
+    margin: 18px auto 0;
+
+    opacity: .8;
+}
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="linha"></div>
+
+    <h1>PROJETO DE VIDA</h1>
+
+    <div class="imagem">
+      <img src="projeto.png" alt="Projeto de Vida">
+    </div>
+
+    <div class="linha linha-baixo"></div>
+    <img src="./image-removebg-preview (5).png" class="flor">
+
+  </div>
+
+</body>
+</html>

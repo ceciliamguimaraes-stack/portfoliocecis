@@ -1,0 +1,180 @@
+*{ 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', Arial, sans-serif; 
+} 
+ 
+body{ 
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+ 
+    padding: 25px; 
+ 
+    background: linear-gradient(135deg, #c996ab, #d9b4c3, #e7cad4); 
+} 
+ 
+/* CONTAINER PRINCIPAL */ 
+.container{ 
+    width: 65%; 
+    max-width: 700px; 
+    min-height: auto; 
+ 
+    background: #efc7d4; 
+ 
+    padding: 25px 30px 20px; 
+ 
+    border-radius: 28px; 
+ 
+    box-shadow: 0 15px 40px rgba(0,0,0,.18); 
+ 
+    position: relative; 
+ 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+ 
+/* DETALHES NOS CANTOS */ 
+.container::before, 
+.container::after{ 
+    content: ""; 
+    position: absolute; 
+    width: 90px; 
+    height: 90px; 
+    border: 3px solid #d89ab4; 
+} 
+ 
+.container::before{ 
+    top: 20px; 
+    left: 20px; 
+ 
+    border-right: none; 
+    border-bottom: none; 
+ 
+    border-radius: 20px 0 0 0; 
+} 
+ 
+.container::after{ 
+    bottom: 20px; 
+    right: 20px; 
+ 
+    border-left: none; 
+    border-top: none; 
+ 
+    border-radius: 0 0 20px 0; 
+} 
+ 
+/* LINHA */ 
+.linha{ 
+    width: 95%; 
+    height: 4px; 
+ 
+    background: #8b0d4f; 
+ 
+    margin: 10px auto 0; 
+ 
+    border-radius: 10px; 
+} 
+ 
+/* TÍTULO */ 
+h1{ 
+    text-align: center; 
+ 
+    color: #8b0d4f; 
+ 
+    font-size: clamp(32px, 4vw, 48px); 
+ 
+    margin: 12px 0 25px; 
+ 
+    font-weight: 800; 
+ 
+    letter-spacing: 3px; 
+} 
+ 
+/* ÁREA DA IMAGEM */ 
+.imagem{ 
+    width: 100%; 
+ 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+} 
+ 
+/* CURRÍCULO */ 
+.imagem img{ 
+    width: 60%; 
+    max-width: 420px; 
+    min-width: 250px; 
+ 
+    height: auto; 
+ 
+    display: block; 
+ 
+    border: 6px solid #fff; 
+ 
+    border-radius: 16px; 
+ 
+    box-shadow: 0 12px 30px rgba(0,0,0,.22); 
+ 
+    transition: transform .3s ease; 
+} 
+ 
+.imagem img:hover{ 
+    transform: scale(1.02); 
+} 
+ 
+/* LINHA DE BAIXO */ 
+.linha-baixo{ 
+    width: 95%; 
+ 
+    margin-top: 25px; 
+} 
+ 
+/* FLOR */ 
+.flor{ 
+    width: 90px; 
+ 
+    display: block; 
+ 
+    margin: 12px auto 0; 
+ 
+    opacity: .8; 
+} 
+ 
+/* RESPONSIVIDADE */ 
+@media(max-width: 700px){ 
+ 
+    body{ 
+        padding: 15px; 
+    } 
+ 
+    .container{ 
+        width: 95%; 
+        min-height: auto; 
+ 
+        padding: 25px 20px; 
+    } 
+ 
+    h1{ 
+        font-size: 34px; 
+        margin-bottom: 25px; 
+    } 
+ 
+    .imagem img{ 
+        width: 85%; 
+        min-width: 0; 
+    } 
+ 
+    .container::before, 
+    .container::after{ 
+        width: 70px; 
+        height: 70px; 
+    } 
+ 
+    .flor{ 
+        width: 75px; 
+    } 
+}

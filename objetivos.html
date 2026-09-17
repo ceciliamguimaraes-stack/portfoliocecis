@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Objetivos</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: rgb(206, 159, 182);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* QUADRO PRINCIPAL */
+        .container {
+            width: 1000px;
+            height: 700px;
+            background: #f5c7da;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .18);
+            position: relative;
+            padding: 40px;
+        }
+
+        /* LINHAS */
+        .linha-topo,
+        .linha-bottom {
+            width: 85%;
+            height: 4px;
+            background: rgb(121, 4, 59);
+            border-radius: 10px;
+            margin: auto;
+        }
+
+        .linha-bottom {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* TÍTULO */
+        h1 {
+            text-align: center;
+            color: rgb(121, 4, 59);
+            font-size: 72px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-weight: 800;
+        }
+
+        /* MANCHA DECORATIVA */
+        .mancha {
+            position: absolute;
+            left: 60px;
+            top: 230px;
+
+            width: 260px;
+            height: 320px;
+
+            background: #efb0c7;
+            border-radius: 50%;
+
+            z-index: 1;
+        }
+
+        /* BONECA */
+        .flor {
+            position: absolute;
+            left: 50px;
+            top: 120px;
+            width: 270px;
+            z-index: 2;
+        }
+
+        /* CAIXA DOS OBJETIVOS */
+        .objetivos {
+            width: 570px;
+            background: rgb(206, 159, 182);
+            padding: 35px;
+
+            border-radius: 0 120px 120px 0;
+
+            position: relative;
+
+            margin-left: 330px;
+
+            box-shadow: 0 12px 25px rgba(0, 0, 0, .12);
+        }
+
+        /* PONTA DO BALÃO */
+        .objetivos::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -55px;
+
+            width: 0;
+            height: 0;
+
+            border-top: 60px solid rgb(206, 159, 182);
+            border-right: 100px solid transparent;
+        }
+
+        /* TEXTO */
+        .objetivos ul {
+            padding-left: 25px;
+        }
+
+        .objetivos li {
+            font-size: 20px;
+            font-weight: 400;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        /* FLORES DECORATIVAS */
+        .flores {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            font-size: 35px;
+            color: #d86a97;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="linha-topo"></div>
+
+        <h1>OBJETIVOS</h1>
+
+        <div class="mancha"></div>
+
+        <img src="./Captura_de_tela_2026-05-07_162757-removebg-preview.png"
+            alt="Boneca"
+            class="flor">
+
+        <div class="objetivos">
+
+            <ul>
+
+                <li>
+                    Entregar as atividades propostas durante o ano com sucesso,
+                    aprimorando minhas habilidades e competências de acordo com as
+                    áreas de conhecimento estudadas.
+                </li>
+
+                <li>
+                    Aprender novos assuntos que irão agregar ao meu conhecimento.
+                </li>
+
+                <li>
+                    Me empenhar nos estudos e alcançar uma boa nota no ENEM.
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="linha-bottom"></div>
+
+        <div class="flores">✿ ✿ ✿</div>
+
+    </div>
+
+</body>
+
+</html>
