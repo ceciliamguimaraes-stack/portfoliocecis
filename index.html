@@ -13,7 +13,7 @@
     <title>Meu Portfólio</title>
 </head>
 
-<body>
+<body id="body-content" style="display: none;">
 
     <!-- MENU -->
     <nav>
@@ -52,7 +52,6 @@
                 <button type="button" class="btn-ver-mais" onclick="abrirMenu()">
                     VER MAIS <span>▼</span>
                 </button>
-
 
                 <ul class="dropdown-menu">
 
@@ -178,38 +177,46 @@
         const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // CHECAR SESSÃO DO USUÁRIO
+        // CHECAR SESSÃO E BLOQUEAR EXIBIÇÃO DE CONTEÚDO
         async function checarSessao() {
             const { data: { session } } = await _supabase.auth.getSession();
-            const authLink = document.getElementById('auth-link');
 
-            if (session) {
+            // Redireciona imediatamente para o login se não houver sessão ativa
+            if (!session) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Exibe a tela apenas se a verificação de login for bem-sucedida
+            document.getElementById('body-content').style.display = 'block';
+
+            // Altera o menu para exibir a opção SAIR
+            const authLink = document.getElementById('auth-link');
+            if (authLink) {
                 authLink.innerText = 'SAIR';
                 authLink.href = '#';
                 authLink.onclick = async (e) => {
                     e.preventDefault();
                     await _supabase.auth.signOut();
                     alert('Sessão encerrada com sucesso!');
-                    window.location.reload();
+                    window.location.href = 'login.html';
                 };
-            } else {
-                authLink.innerText = 'LOGIN';
-                authLink.href = 'login.html';
             }
         }
 
-        // FUNÇÕES EXISTENTES
+        // FUNÇÃO DO MENU DROPDOWN
         function abrirMenu() {
             const dropdown = document.querySelector(".dropdown");
             dropdown.classList.toggle("ativo");
         }
 
+        // ANO DINÂMICO NO FOOTER
         const ano = document.getElementById("ano");
         if (ano) {
             ano.innerHTML = new Date().getFullYear();
         }
 
-        // EXECUTA A VERIFICAÇÃO DE SESSÃO AO CARREGAR A PÁGINA
+        // EXECUTA A VERIFICAÇÃO AUTOMÁTICA
         checarSessao();
     </script>
 
