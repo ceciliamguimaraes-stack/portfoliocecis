@@ -177,30 +177,34 @@
         const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // CHECAR SESSÃO E BLOQUEAR EXIBIÇÃO DE CONTEÚDO
+        // CHECAR SESSÃO COM TRATAMENTO DE ERRO
         async function checarSessao() {
-            const { data: { session } } = await _supabase.auth.getSession();
+            try {
+                const { data, error } = await _supabase.auth.getSession();
 
-            // Redireciona imediatamente para o login se não houver sessão ativa
-            if (!session) {
-                window.location.href = 'login.html';
-                return;
-            }
-
-            // Exibe a tela apenas se a verificação de login for bem-sucedida
-            document.getElementById('body-content').style.display = 'block';
-
-            // Altera o menu para exibir a opção SAIR
-            const authLink = document.getElementById('auth-link');
-            if (authLink) {
-                authLink.innerText = 'SAIR';
-                authLink.href = '#';
-                authLink.onclick = async (e) => {
-                    e.preventDefault();
-                    await _supabase.auth.signOut();
-                    alert('Sessão encerrada com sucesso!');
+                // Se houver erro ou não existir sessão ativa, redireciona para o login
+                if (error || !data || !data.session) {
                     window.location.href = 'login.html';
-                };
+                    return;
+                }
+
+                // Exibe o conteúdo apenas com confirmação da sessão
+                document.getElementById('body-content').style.display = 'block';
+
+                const authLink = document.getElementById('auth-link');
+                if (authLink) {
+                    authLink.innerText = 'SAIR';
+                    authLink.href = '#';
+                    authLink.onclick = async (e) => {
+                        e.preventDefault();
+                        await _supabase.auth.signOut();
+                        localStorage.clear();
+                        window.location.href = 'login.html';
+                    };
+                }
+            } catch (err) {
+                console.error("Erro na verificação de acesso:", err);
+                window.location.href = 'login.html';
             }
         }
 
