@@ -167,7 +167,6 @@
         © <span id="ano"></span> Cecília Maria - Todos os direitos reservados
 
     </footer>
-    
 
 
     <!-- JAVASCRIPT -->
@@ -182,13 +181,13 @@
             try {
                 const { data, error } = await _supabase.auth.getSession();
 
-                // Se houver erro ou não existir sessão ativa, redireciona para o login
+                // Se não houver sessão ativa, manda direto para a página de login
                 if (error || !data || !data.session) {
                     window.location.href = 'login.html';
                     return;
                 }
 
-                // Exibe o conteúdo apenas com confirmação da sessão
+                // Se estiver logado, exibe o conteúdo
                 document.getElementById('body-content').style.display = 'block';
 
                 const authLink = document.getElementById('auth-link');
