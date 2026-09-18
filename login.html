@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -9,6 +8,9 @@
     <title>Login</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- SUPABASE SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
 <body>
@@ -302,19 +304,19 @@
         <form id="loginForm">
 
 
-            <!-- USUÁRIO -->
+            <!-- E-MAIL / USUÁRIO -->
 
             <div class="text_field">
 
                 <input
-                    type="text"
+                    type="email"
                     id="login"
                     required
                     autocomplete="username"
                 >
 
                 <label for="login">
-                    Usuário
+                    E-mail
                 </label>
 
             </div>
@@ -397,8 +399,12 @@
 
     <script>
 
-        const loginForm = document.getElementById("loginForm");
+        /* Configuração do Supabase */
+        const SUPABASE_URL = 'https://tkgwntyzlzuvjrcdhcre.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+        const loginForm = document.getElementById("loginForm");
         const mensagem = document.getElementById("mensagem");
 
 
@@ -423,8 +429,10 @@
 
             if (!login || !senha) {
 
+                mensagem.style.color = "red";
+
                 mensagem.textContent =
-                    "Preencha usuário e senha.";
+                    "Preencha e-mail e senha.";
 
                 return;
             }
@@ -432,79 +440,58 @@
 
             try {
 
-                /* Envia os dados para o Node.js */
+                mensagem.style.color = "#000000";
 
-                const resposta = await fetch(
-                    "http://localhost:3000/login",
-                    {
-
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type": "application/json"
-                        },
-
-                        body: JSON.stringify({
-
-                            usuario: login,
-
-                            senha: senha
-
-                        })
-                    }
-                );
+                mensagem.textContent = "Conectando...";
 
 
-                const dados = await resposta.json();
+                /* Autenticação via Supabase */
+
+                const { data, error } = await _supabase.auth.signInWithPassword({
+
+                    email: login,
+
+                    password: senha
+
+                });
+
+
+                /* LOGIN INCORRETO */
+
+                if (error) {
+
+                    mensagem.style.color = "red";
+
+                    mensagem.textContent = "Erro ao entrar: " + error.message;
+
+                }
 
 
                 /* LOGIN CORRETO */
 
-                if (dados.sucesso) {
+                else {
+
+                    mensagem.style.color = "green";
 
                     mensagem.textContent =
                         "Login realizado com sucesso!";
 
 
-                    /* Salva os dados do usuário */
-
-                    localStorage.setItem(
-                        "usuario",
-                        dados.usuario
-                    );
-
-
-                    localStorage.setItem(
-                        "tipo",
-                        dados.tipo
-                    );
-
-
-                    /* Aguarda um pouco antes de entrar */
+                    /* Aguarda um pouco antes de redirecionar */
 
                     setTimeout(function() {
 
                         window.location.href =
                             "index.html";
 
-                    }, 500);
-
-                }
-
-
-                /* LOGIN INCORRETO */
-
-                else {
-
-                    mensagem.textContent =
-                        dados.mensagem;
+                    }, 800);
 
                 }
 
             }
 
 
-            /* ERRO DE CONEXÃO */
+            /* ERRO INESPERADO */
 
             catch (erro) {
 
@@ -513,6 +500,8 @@
                     erro
                 );
 
+
+                mensagem.style.color = "red";
 
                 mensagem.textContent =
                     "Não foi possível conectar ao servidor.";
@@ -540,4 +529,3 @@
 </body>
 
 </html>
-

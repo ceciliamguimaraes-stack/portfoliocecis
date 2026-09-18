@@ -7,6 +7,9 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- SUPABASE CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <title>Meu Portfólio</title>
 </head>
 
@@ -38,6 +41,10 @@
 
             <li><a href="senai.html">SENAI</a></li>
 
+            <!-- BOTÃO DE LOGIN / SAIR -->
+            <li id="menu-auth">
+                <a href="login.html" id="auth-link">LOGIN</a>
+            </li>
 
             <!-- VER MAIS -->
             <li class="dropdown">
@@ -161,28 +168,49 @@
         © <span id="ano"></span> Cecília Maria - Todos os direitos reservados
 
     </footer>
+    
 
 
     <!-- JAVASCRIPT -->
     <script>
+        // CONFIGURAÇÃO DO SUPABASE
+        const SUPABASE_URL = 'https://tkgwntyzlzuvjrcdhcre.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        function abrirMenu() {
+        // CHECAR SESSÃO DO USUÁRIO
+        async function checarSessao() {
+            const { data: { session } } = await _supabase.auth.getSession();
+            const authLink = document.getElementById('auth-link');
 
-            const dropdown = document.querySelector(".dropdown");
-
-            dropdown.classList.toggle("ativo");
-
+            if (session) {
+                authLink.innerText = 'SAIR';
+                authLink.href = '#';
+                authLink.onclick = async (e) => {
+                    e.preventDefault();
+                    await _supabase.auth.signOut();
+                    alert('Sessão encerrada com sucesso!');
+                    window.location.reload();
+                };
+            } else {
+                authLink.innerText = 'LOGIN';
+                authLink.href = 'login.html';
+            }
         }
 
+        // FUNÇÕES EXISTENTES
+        function abrirMenu() {
+            const dropdown = document.querySelector(".dropdown");
+            dropdown.classList.toggle("ativo");
+        }
 
         const ano = document.getElementById("ano");
-
         if (ano) {
-
             ano.innerHTML = new Date().getFullYear();
-
         }
 
+        // EXECUTA A VERIFICAÇÃO DE SESSÃO AO CARREGAR A PÁGINA
+        checarSessao();
     </script>
 
 </body>
