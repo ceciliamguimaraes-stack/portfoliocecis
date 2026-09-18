@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Login</title>
-
+    <title>Login - Portfólio</title>
     <link rel="stylesheet" href="style.css">
 
     <!-- SUPABASE SDK -->
@@ -16,390 +14,148 @@
 <body>
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
-
         body {
             margin: 0;
             padding: 0;
-
             font-family: 'Times New Roman', Times, serif;
-
             background-color: rgb(206, 159, 182);
-
             min-height: 100vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-
-        /* =========================
-           CAIXA DO LOGIN
-        ========================= */
-
         .center {
             width: 360px;
-            min-height: 400px;
-
+            min-height: 380px;
             background: #ffffff;
-
             border-radius: 10px;
-
             padding: 0 40px 30px 40px;
-
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
         }
 
-
         .center h1 {
             text-align: center;
-
             padding: 20px 0;
-
             margin: 0 0 25px 0;
-
             border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-
             font-size: 32px;
         }
 
-
-        /* =========================
-           CAMPOS
-        ========================= */
-
         .text_field {
             position: relative;
-
             border-bottom: 2px solid #000000;
-
             margin: 25px 0;
         }
 
-
         .text_field input {
             width: 100%;
-
             padding: 0 5px;
-
             height: 40px;
-
             font-size: 16px;
-
             border: none;
-
             background: none;
-
             outline: none;
         }
-
 
         .text_field label {
             position: absolute;
-
             top: 50%;
-
             left: 5px;
-
             color: rgb(121, 4, 59);
-
             transform: translateY(-50%);
-
             font-size: 16px;
-
             pointer-events: none;
-
             transition: 0.3s;
         }
-
-
-        /* =========================
-           ANIMAÇÃO DO LABEL
-        ========================= */
 
         .text_field input:focus ~ label,
         .text_field input:valid ~ label {
-
             top: -5px;
-
             color: rgb(121, 4, 59);
-
             font-size: 14px;
         }
-
-
-        /* =========================
-           ESQUECEU A SENHA
-        ========================= */
-
-        .pass {
-            margin-top: 20px;
-
-            margin-bottom: 20px;
-
-            color: #000000;
-
-            cursor: pointer;
-
-            font-size: 15px;
-        }
-
-
-        .pass:hover {
-            text-decoration: underline;
-
-            color: rgb(121, 4, 59);
-        }
-
-
-        /* =========================
-           BOTÕES
-        ========================= */
 
         .botoes {
             display: flex;
-
             gap: 10px;
-
             margin-top: 20px;
-
             margin-bottom: 25px;
         }
 
-
         .botoes input {
-            flex: 1;
-
+            width: 100%;
             height: 40px;
-
+            border: 1px solid rgb(121, 4, 59);
+            background: rgb(121, 4, 59);
             border-radius: 25px;
-
             font-size: 16px;
-
+            color: #ffffff;
             font-weight: 500;
-
             cursor: pointer;
-
             outline: none;
-
             transition: 0.3s;
         }
 
-
-        /* BOTÃO CONECTAR */
-
-        .btn-conectar {
-
-            border: 1px solid rgb(121, 4, 59);
-
-            background: rgb(121, 4, 59);
-
-            color: #ffffff;
-        }
-
-
-        .btn-conectar:hover {
-
+        .botoes input:hover {
             background: rgb(206, 159, 182);
-
             border-color: rgb(206, 159, 182);
         }
 
-
-        /* BOTÃO CANCELAR */
-
-        .btn-cancelar {
-
-            border: 1px solid rgb(206, 159, 182);
-
-            background: #ffffff;
-
-            color: rgb(206, 159, 182);
-        }
-
-
-        .btn-cancelar:hover {
-
-            background: rgb(206, 159, 182);
-
-            color: #ffffff;
-        }
-
-
-        /* =========================
-           CADASTRO
-        ========================= */
-
         .signup_link {
-
             margin: 20px 0 0;
-
             text-align: center;
-
             font-size: 16px;
         }
 
-
         .signup_link a {
-
             text-decoration: none;
-
             color: #000000;
         }
 
-
         .signup_link a:hover {
-
             text-decoration: underline;
-
             color: rgb(206, 159, 182);
         }
 
-
-        /* =========================
-           MENSAGEM
-        ========================= */
-
         #mensagem {
-
             text-align: center;
-
             font-size: 14px;
-
             margin-top: 10px;
         }
-
-
-        /* =========================
-           RESPONSIVIDADE
-        ========================= */
-
-        @media (max-width: 500px) {
-
-            .center {
-
-                width: 90%;
-
-                padding: 0 25px 25px 25px;
-            }
-        }
-
     </style>
 
-
-    <!-- =========================
-         LOGIN
-    ========================= -->
-
     <div class="center">
-
         <h1>LOGIN</h1>
 
-
         <form id="loginForm">
-
-
-            <!-- E-MAIL / USUÁRIO -->
+            <div class="text_field">
+                <input type="email" id="email" required autocomplete="email">
+                <label for="email">E-mail</label>
+            </div>
 
             <div class="text_field">
-
-                <input
-                    type="email"
-                    id="login"
-                    required
-                    autocomplete="username"
-                >
-
-                <label for="login">
-                    E-mail
-                </label>
-
+                <input type="password" id="senha" required autocomplete="current-password">
+                <label for="senha">Senha</label>
             </div>
-
-
-            <!-- SENHA -->
-
-            <div class="text_field">
-
-                <input
-                    type="password"
-                    id="senha"
-                    required
-                    autocomplete="current-password"
-                >
-
-                <label for="senha">
-                    Senha
-                </label>
-
-            </div>
-
-
-            <!-- ESQUECEU A SENHA -->
-
-            <div class="pass">
-
-                Esqueceu a senha?
-
-            </div>
-
-
-            <!-- MENSAGEM -->
 
             <p id="mensagem"></p>
 
-
-            <!-- BOTÕES -->
-
             <div class="botoes">
-
-                <input
-                    type="submit"
-                    value="Conectar"
-                    class="btn-conectar"
-                >
-
-
-                <input
-                    type="button"
-                    value="Cancelar"
-                    class="btn-cancelar"
-                    onclick="cancelar()"
-                >
-
+                <input type="submit" value="Entrar">
             </div>
-
-
-            <!-- CADASTRO -->
 
             <div class="signup_link">
-
-                <a href="cadastro.html">
-
-                    Não é membro? Cadastre-se!
-
-                </a>
-
+                Não é membro? <a href="cadastro.html">Cadastre-se!</a>
             </div>
-
-
         </form>
-
     </div>
 
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
-
     <script>
-
-        /* Configuração do Supabase */
         const SUPABASE_URL = 'https://tkgwntyzlzuvjrcdhcre.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
@@ -407,125 +163,42 @@
         const loginForm = document.getElementById("loginForm");
         const mensagem = document.getElementById("mensagem");
 
-
-        /* =========================
-           FAZER LOGIN
-        ========================= */
-
         loginForm.addEventListener("submit", async function(event) {
-
             event.preventDefault();
 
+            // Trata e-mail para minúsculas e remove espaços das pontas
+            const email = document.getElementById("email").value.trim().toLowerCase();
+            const senha = document.getElementById("senha").value;
 
-            const login =
-                document.getElementById("login").value.trim();
-
-
-            const senha =
-                document.getElementById("senha").value;
-
-
-            /* Verifica se os campos foram preenchidos */
-
-            if (!login || !senha) {
-
-                mensagem.style.color = "red";
-
-                mensagem.textContent =
-                    "Preencha e-mail e senha.";
-
-                return;
-            }
-
+            mensagem.style.color = "#000000";
+            mensagem.textContent = "Verificando credenciais...";
 
             try {
-
-                mensagem.style.color = "#000000";
-
-                mensagem.textContent = "Conectando...";
-
-
-                /* Autenticação via Supabase */
-
                 const { data, error } = await _supabase.auth.signInWithPassword({
-
-                    email: login,
-
+                    email: email,
                     password: senha
-
                 });
 
-
-                /* LOGIN INCORRETO */
-
                 if (error) {
-
                     mensagem.style.color = "red";
-
-                    mensagem.textContent = "Erro ao entrar: " + error.message;
-
-                }
-
-
-                /* LOGIN CORRETO */
-
-                else {
-
+                    if (error.message.includes("Invalid login credentials")) {
+                        mensagem.textContent = "E-mail ou senha incorretos. Recrie o usuário no Supabase se o erro persistir.";
+                    } else {
+                        mensagem.textContent = "Erro ao entrar: " + error.message;
+                    }
+                } else {
                     mensagem.style.color = "green";
+                    mensagem.textContent = "Login efetuado! Entrando...";
 
-                    mensagem.textContent =
-                        "Login realizado com sucesso!";
-
-
-                    /* Aguarda um pouco antes de redirecionar */
-
-                    setTimeout(function() {
-
-                        window.location.href =
-                            "index.html";
-
-                    }, 800);
-
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 1000);
                 }
-
-            }
-
-
-            /* ERRO INESPERADO */
-
-            catch (erro) {
-
-                console.error(
-                    "Erro ao conectar:",
-                    erro
-                );
-
-
+            } catch (erro) {
                 mensagem.style.color = "red";
-
-                mensagem.textContent =
-                    "Não foi possível conectar ao servidor.";
+                mensagem.textContent = "Erro ao conectar com o servidor.";
             }
-
         });
-
-
-        /* =========================
-           BOTÃO CANCELAR
-        ========================= */
-
-        function cancelar() {
-
-            document.getElementById("login").value = "";
-
-            document.getElementById("senha").value = "";
-
-            mensagem.textContent = "";
-
-        }
-
     </script>
-
 </body>
-
 </html>

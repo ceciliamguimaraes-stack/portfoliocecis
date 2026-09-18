@@ -31,7 +31,7 @@
 
         .center {
             width: 360px;
-            min-height: 400px;
+            min-height: 420px;
             background: #ffffff;
             border-radius: 10px;
             padding: 0 40px 30px 40px;
@@ -52,7 +52,7 @@
             margin: 25px 0;
         }
 
-        .text_field input {
+        .text_field input, .text_field select {
             width: 100%;
             padding: 0 5px;
             height: 40px;
@@ -82,16 +82,17 @@
 
         .botoes {
             display: flex;
+            flex-direction: column;
             gap: 10px;
             margin-top: 20px;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
-        .botoes input {
-            flex: 1;
+        .botoes input, .botoes button {
+            width: 100%;
             height: 40px;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
             cursor: pointer;
             outline: none;
@@ -109,8 +110,18 @@
             border-color: rgb(206, 159, 182);
         }
 
+        .btn-auto {
+            border: 1px solid #333;
+            background: #f4f4f4;
+            color: #333;
+        }
+
+        .btn-auto:hover {
+            background: #e0e0e0;
+        }
+
         .signup_link {
-            margin: 20px 0 0;
+            margin: 15px 0 0;
             text-align: center;
             font-size: 16px;
         }
@@ -146,10 +157,18 @@
                 <label for="senha">Senha</label>
             </div>
 
+            <div class="text_field" style="border-bottom: 1px solid #000;">
+                <select id="tipo" required style="cursor: pointer; margin-top: 10px;">
+                    <option value="aluna">Aluna</option>
+                    <option value="professores">Professores</option>
+                </select>
+            </div>
+
             <p id="mensagem"></p>
 
             <div class="botoes">
                 <input type="submit" value="Cadastrar" class="btn-cadastrar">
+                <button type="button" class="btn-auto" onclick="criarUsuariosPadrao()">Criar Cecília e Professor</button>
             </div>
 
             <div class="signup_link">
@@ -166,11 +185,13 @@
         const cadastroForm = document.getElementById("cadastroForm");
         const mensagem = document.getElementById("mensagem");
 
+        // CADASTRO MANUAL
         cadastroForm.addEventListener("submit", async function(event) {
             event.preventDefault();
 
             const email = document.getElementById("email").value.trim();
             const senha = document.getElementById("senha").value;
+            const tipo = document.getElementById("tipo").value;
 
             if (!email || !senha) {
                 mensagem.style.color = "red";
@@ -184,7 +205,10 @@
 
                 const { data, error } = await _supabase.auth.signUp({
                     email: email,
-                    password: senha
+                    password: senha,
+                    options: {
+                        data: { tipo: tipo }
+                    }
                 });
 
                 if (error) {
@@ -192,17 +216,38 @@
                     mensagem.textContent = "Erro ao cadastrar: " + error.message;
                 } else {
                     mensagem.style.color = "green";
-                    mensagem.textContent = "Cadastro realizado! Redirecionando para o login...";
+                    mensagem.textContent = "Cadastro realizado! Redirecionando...";
 
-                    setTimeout(function() {
-                        window.location.href = "login.html";
-                    }, 1500);
+                    setTimeout(() => window.location.href = "login.html", 1500);
                 }
             } catch (erro) {
                 mensagem.style.color = "red";
-                mensagem.textContent = "Não foi possível conectar ao servidor.";
+                mensagem.textContent = "Erro de conexão.";
             }
         });
+
+        // CRIAR OS DOIS USUÁRIOS PADRÃO COM UM CLIQUE
+        async function criarUsuariosPadrao() {
+            mensagem.style.color = "#000000";
+            mensagem.textContent = "Cadastrando usuários padrão...";
+
+            // 1. Cadastra a Cecília
+            await _supabase.auth.signUp({
+                email: 'cecilia@senai.com',
+                password: '123456',
+                options: { data: { tipo: 'aluna' } }
+            });
+
+            // 2. Cadastra o Professor
+            await _supabase.auth.signUp({
+                email: 'prof@gmail.com',
+                password: '123456',
+                options: { data: { tipo: 'professores' } }
+            });
+
+            mensagem.style.color = "green";
+            mensagem.textContent = "Usuários 'cecilia@senai.com' e 'prof@gmail.com' criados com sucesso!";
+        }
     </script>
 </body>
 </html>
