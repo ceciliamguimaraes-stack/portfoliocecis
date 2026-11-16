@@ -1,228 +1,173 @@
-<!doctype html>
-<html lang="pt-br">
 
+<!doctype html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <meta name="theme-color" content="#f9e8ef">
+    <title>Meu Portfólio | Cecília Maria</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- SUPABASE CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <title>Meu Portfólio</title>
 </head>
-
-<body id="body-content" style="display: none;">
-
-    <!-- MENU -->
-    <nav>
+<body id="body-content" style="display:none">
+    <nav class="navbar">
         <ul class="menu">
-
-            <li><a href="sumario.html">SUMÁRIO</a></li>
-
-            <li><a href="sobremim.html">IDENTIFICAÇÃO PESSOAL</a></li>
-
-            <li><a href="objetivos.html">OBJETIVOS</a></li>
-
-            <li><a href="plano.html">PPE</a></li>
-
-            <li><a href="historia.html">HISTÓRIA DE VIDA</a></li>
-
-            <li><a href="projeto.html">PROJETO DE VIDA</a></li>
-
-            <li><a href="linguagens.html">LINGUAGENS</a></li>
-
-            <li><a href="humanas.html">HUMANAS</a></li>
-
-            <li><a href="natureza.html">NATUREZA</a></li>
-
-            <li><a href="matematica.html">MATEMÁTICA</a></li>
-
-            <li><a href="senai.html">SENAI</a></li>
-
-            <!-- BOTÃO DE LOGIN / SAIR -->
+            <li><a class="menu-link" href="sumario.html">SUMÁRIO</a></li>
+            <li><a class="menu-link" href="sobremim.html">IDENTIFICAÇÃO PESSOAL</a></li>
+            <li><a class="menu-link" href="objetivos.html">OBJETIVOS</a></li>
+            <li><a class="menu-link" href="plano.html">PPE</a></li>
+            <li><a class="menu-link" href="historia.html">HISTÓRIA DE VIDA</a></li>
+            <li><a class="menu-link" href="projeto.html">PROJETO DE VIDA</a></li>
+            <li><a class="menu-link" href="linguagens.html">LINGUAGENS</a></li>
+            <li><a class="menu-link" href="humanas.html">HUMANAS</a></li>
+            <li><a class="menu-link" href="natureza.html">NATUREZA</a></li>
+            <li><a class="menu-link" href="matematica.html">MATEMÁTICA</a></li>
+            <li><a class="menu-link" href="senai.html">SENAI</a></li>
             <li id="menu-auth">
-                <a href="login.html" id="auth-link">LOGIN</a>
+                <a class="menu-link" href="login.html" id="auth-link">LOGIN</a>
             </li>
-
-            <!-- VER MAIS -->
-            <li class="dropdown">
-
-                <button type="button" class="btn-ver-mais" onclick="abrirMenu()">
-                    VER MAIS <span>▼</span>
+                     <li class="dropdown">
+                <button type="button" class="btn-ver-mais" aria-expanded="false" onclick="abrirMenu()">
+                    VER MAIS <span>▾</span>
                 </button>
-
-                <ul class="dropdown-menu">
-
-                    <li>
-                        <a href="curriculo.html">
-                            CURRÍCULO
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="consideracoes.html">
-                            CONSIDERAÇÕES FINAIS
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="referencias.html">
-                            REFERÊNCIAS
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="anexos.html">
-                            ANEXOS
-                        </a>
-                    </li>
-
-                </ul>
-
             </li>
+        </ul>
 
+        <ul class="dropdown-menu">
+            <li><a href="curriculo.html">CURRÍCULO</a></li>
+            <li><a href="consideracoes.html">CONSIDERAÇÕES FINAIS</a></li>
+            <li><a href="referencias.html">REFERÊNCIAS</a></li>
+            <li><a href="anexos.html">ANEXOS</a></li>
         </ul>
     </nav>
 
-
-    <!-- HEADER -->
-    <header>
-
-        <div class="center">
-
-            <a href="https://br.shein.com/"
-                target="_blank"
-                rel="noopener noreferrer">
-
-            </a>
-
-        </div>
-
-    </header>
-
-
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main>
-
-        <section class="capa">
-
-            <h2>Meu</h2>
-
-            <h1>PORTFÓLIO</h1>
-
-            <h3>
-                Orientado por Regiane Leal - Cleiton Jericó
-            </h3>
-
-
-            <!-- LOGO SENAI / SESI -->
-            <img src="./images-removebg-preview (1).png" alt="SESI e SENAI">
-
-
-            <!-- IMAGENS DA ESQUERDA -->
-            <div class="img-left">
-
-                <img src="./img/cecilia.png"
-                    class="img img1"
-                    alt="Cecília">
-
-                <img src="./cecilia10.png"
-                    class="img img2"
-                    alt="Cecília">
-
-                <img src="./img/cecilia4.png"
-                    class="img img3"
-                    alt="Cecília">
-
+    <main class="capa">
+        <section class="conteudo-capa">
+            <div class="texto-capa">
+                <span class="sobre-titulo">MEU</span>
+                <h1>PORTFÓLIO</h1>
+                <div class="linha-decorativa"></div>
+                <p class="orientacao">Orientado por Regiane Leal <span>·</span> Cleiton Jericó</p>
+                <img class="logos-instituicoes" src="./images-removebg-preview (1).png" alt="Logotipos do SESI e SENAI">
             </div>
 
-
-            <!-- IMAGENS DA DIREITA -->
-            <div class="img-right">
-
-                <img src="./img/cecilia.png"
-                    class="img img4"
-                    alt="Cecília">
-
-                <img src="./cecilia10.png"
-                    class="img img5"
-                    alt="Cecília">
-
-                <img src="./img/cecilia4.png"
-                    class="img img6"
-                    alt="Cecília">
-
+            <div class="foto-capa">
+                <img src="./cecilia10.png" alt="Foto de Cecília Maria">
+                <span class="coracao" aria-hidden="true">♡</span>
             </div>
-
         </section>
 
+        <div class="detalhe-inferior" aria-hidden="true">
+            <span></span>
+            <span class="pequeno-coracao">♥</span>
+            <span></span>
+        </div>
+
+        <footer class="copyright">
+            © <span id="ano"></span> Cecília Maria · Todos os direitos reservados
+        </footer>
     </main>
 
-
-    <!-- FOOTER -->
-    <footer class="copyright">
-
-        © <span id="ano"></span> Cecília Maria - Todos os direitos reservados
-
-    </footer>
-
-
-    <!-- JAVASCRIPT -->
     <script>
-        // CONFIGURAÇÃO DO SUPABASE
         const SUPABASE_URL = 'https://tkgwntyzlzuvjrcdhcre.supabase.co';
         const SUPABASE_KEY = 'sb_publishable_9d3JAJtGyDgB4R6ncvWj3g_fzXeYj4h';
         const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-        // CHECAR SESSÃO COM TRATAMENTO DE ERRO
         async function checarSessao() {
             try {
                 const { data, error } = await _supabase.auth.getSession();
 
-                // Se não houver sessão ativa, manda direto para a página de login
-                if (error || !data || !data.session) {
-                    window.location.href = 'login.html';
+                if (error || !data?.session) {
+                    window.location.replace('login.html');
                     return;
                 }
 
-                // Se estiver logado, exibe o conteúdo
                 document.getElementById('body-content').style.display = 'block';
 
                 const authLink = document.getElementById('auth-link');
-                if (authLink) {
-                    authLink.innerText = 'SAIR';
-                    authLink.href = '#';
-                    authLink.onclick = async (e) => {
-                        e.preventDefault();
-                        await _supabase.auth.signOut();
-                        localStorage.clear();
-                        window.location.href = 'login.html';
-                    };
-                }
-            } catch (err) {
-                console.error("Erro na verificação de acesso:", err);
-                window.location.href = 'login.html';
+                authLink.textContent = 'SAIR';
+                authLink.href = '#';
+
+                authLink.addEventListener('click', async function (event) {
+                    event.preventDefault();
+                    authLink.textContent = 'SAINDO...';
+                    authLink.style.pointerEvents = 'none';
+
+                    const { error } = await _supabase.auth.signOut();
+
+                    if (error) {
+                        authLink.textContent = 'SAIR';
+                        authLink.style.pointerEvents = '';
+                        alert('Não foi possível sair da conta. Tente novamente.');
+                        return;
+                    }
+
+                    window.location.replace('login.html');
+                });
+            } catch (error) {
+                console.error('Erro ao verificar a sessão:', error);
+                window.location.replace('login.html');
             }
         }
 
-        // FUNÇÃO DO MENU DROPDOWN
+        function posicionarMenu() {
+            const navbar = document.querySelector('.navbar');
+            const botao = document.querySelector('.btn-ver-mais');
+            const menu = document.querySelector('.dropdown-menu');
+            const navRect = navbar.getBoundingClientRect();
+            const rect = botao.getBoundingClientRect();
+            const bordaTopo = navbar.clientTop;
+            const bordaDireita = navbar.offsetWidth - navbar.clientWidth - navbar.clientLeft;
+            const margem = 12;
+            const largura = menu.offsetWidth || 230;
+            let right = navRect.right - bordaDireita - rect.right;
+
+            right = Math.min(Math.max(right, margem), navbar.clientWidth - largura - margem);
+
+            menu.style.top = `${rect.bottom - navRect.top - bordaTopo + 12}px`;
+            menu.style.right = `${right}px`;
+        }
+
         function abrirMenu() {
-            const dropdown = document.querySelector(".dropdown");
-            dropdown.classList.toggle("ativo");
+            const botao = document.querySelector('.btn-ver-mais');
+            const menu = document.querySelector('.dropdown-menu');
+            const aberto = menu.classList.toggle('ativo');
+            botao.setAttribute('aria-expanded', String(aberto));
+
+            if (aberto) {
+                posicionarMenu();
+            }
         }
 
-        // ANO DINÂMICO NO FOOTER
-        const ano = document.getElementById("ano");
-        if (ano) {
-            ano.innerHTML = new Date().getFullYear();
-        }
+        window.addEventListener('resize', function () {
+            if (document.querySelector('.dropdown-menu').classList.contains('ativo')) {
+                posicionarMenu();
+            }
+        });
 
-        // EXECUTA A VERIFICAÇÃO AUTOMÁTICA
+        document.querySelector('.menu').addEventListener('scroll', function () {
+            if (document.querySelector('.dropdown-menu').classList.contains('ativo')) {
+                posicionarMenu();
+            }
+        });
+
+        document.addEventListener('click', function (event) {
+            const botao = document.querySelector('.btn-ver-mais');
+            const menu = document.querySelector('.dropdown-menu');
+
+            if (!botao.contains(event.target) && !menu.contains(event.target)) {
+                menu.classList.remove('ativo');
+                botao.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        document.getElementById('ano').textContent = new Date().getFullYear();
+
         checarSessao();
     </script>
-
+    <script src="navegacao.js"></script>
 </body>
-
 </html>

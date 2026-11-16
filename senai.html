@@ -343,7 +343,7 @@
 
             <button class="btn-atividade"
                 onclick="abrirAtividade(
-                './senai26.png',
+                './doceria.png',
                 'Atividade Escolhida',
                 'Atividade realizada durante o Eixo 4.'
                 )">
@@ -357,9 +357,21 @@
 
         <div class="cards">
 
-            <div class="card vazio">
-                <p>Em breve</p>
+             <div class="card">
+                <img src="./doceria.png"
+                    alt="Atividade SENAI">
+                <span class="data">01/10/2026</span>
             </div>
+
+            
+             <div class="card">
+                <img src="./botãosair.png"
+                    alt="Atividade SENAI">
+                <span class="data">02/10/2026</span>
+            </div>
+
+            
+             
 
         </div>
 
@@ -438,8 +450,12 @@
     });
 
 </script>
-```
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="upload-eixo.js"></script>
+
+    <script src="navegacao.js"></script>
 </body>
 
 </html>
